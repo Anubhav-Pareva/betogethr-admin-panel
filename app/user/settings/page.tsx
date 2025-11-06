@@ -1,10 +1,10 @@
 "use client";
-import ChangePassword from "@/Components/setting-components/ChangePassword";
-import EditProfile from "@/Components/setting-components/EditProfile";
-import LeftSection from "@/Components/setting-components/LeftSection";
-import PageHeader from "@/Components/Shared-ui/PageHeader";
 import {  Box } from "@mui/material";
 import { useState } from "react";
+import PageHeader from "../../../Components/Shared-ui/PageHeader";
+import LeftSection from "../../../Components/setting-components/LeftSection";
+import EditProfile from "../../../Components/setting-components/EditProfile";
+import ChangePassword from "../../../Components/setting-components/ChangePassword";
 
 export default function SettingsPage() {
   const [selected, setSelected] = useState("profile");
@@ -15,8 +15,6 @@ export default function SettingsPage() {
         <LeftSection selected={selected} setSelected={setSelected}/>
         {selected === 'profile' && <EditProfile/>}
         {selected === 'change-password' && <ChangePassword />}
-        {selected === 'api-key' && <>profile</>}
-        {selected === 'subscription' && <>profile</>}
       </Box>
     </Box>
   );

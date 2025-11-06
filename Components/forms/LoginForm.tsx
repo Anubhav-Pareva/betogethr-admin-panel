@@ -5,16 +5,13 @@ import CustomText from "../Shared-ui/CustomText";
 import { Controller, useForm } from "react-hook-form";
 import { StyledTextField } from "../Shared-ui/StyledTextField";
 import { useRouter } from "next/navigation";
-import { useLoginMutation } from "../../rtk/endpoints/authApi";
 import { useDispatch } from "react-redux";
 import { loginSchema } from "../../Validations/LoginSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import CustomLink from "../Shared-ui/CustomLink";
 import CustomButton from "../Shared-ui/CustomButton";
-import { useEffect } from "react";
-import { showAlert } from "../../rtk/feature/alertSlice";
-import { loginUser } from "../../rtk/feature/authSlice";
+
 
 type LoginFormInputs = {
   email: string;
@@ -23,7 +20,6 @@ type LoginFormInputs = {
 
 export default function LoginForm() {
   const navigate = useRouter();
-  const [login, { data, isLoading, isSuccess }] = useLoginMutation();
   const dispatch = useDispatch();
   // ✅ Setup React Hook Form
   const {
@@ -39,20 +35,21 @@ export default function LoginForm() {
   });
   const handleLogin = async (formData: Yup.InferType<typeof loginSchema>) => {
     try {
-      await login(formData as LoginFormInputs).unwrap();
+      console.log(formData)
+      navigate.push("/user");
     } catch (err) {
       console.log("Login Error:", err);
     }
   };
 
   // ✅ Redirect if login successful
-  useEffect(() => {
-    if (isSuccess && data) {
-      dispatch(loginUser(data));
-      dispatch(showAlert({ message: "Log-in success", severity: "success" }));
-      navigate.push("/user");
-    }
-  }, [isSuccess, data, dispatch, navigate]);
+  // useEffect(() => {
+  //   if (isSuccess && data) {
+  //     dispatch(loginUser(data));
+  //     dispatch(showAlert({ message: "Log-in success", severity: "success" }));
+  //     navigate.push("/user");
+  //   }
+  // }, [isSuccess, data, dispatch, navigate]);
   return (
     <Stack
       width={{ xs: "95%", sm: 480 }}
@@ -117,9 +114,10 @@ export default function LoginForm() {
 
           {/* Login Button */}
           <CustomButton
-            title={isLoading ? "Logging in..." : "Login"}
+            // title={isLoading ? "Logging in..." : "Login"}
+            title="Login"
             onClick={handleSubmit(handleLogin)}
-            disabled={isLoading}
+            //disabled={isLoading}
           />
 
           {/* Signup Link */}

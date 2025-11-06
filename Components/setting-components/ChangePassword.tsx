@@ -1,6 +1,5 @@
 "use client";
 
-import { colors } from "@/Constants/colors";
 import { Box, Stack } from "@mui/material";
 import CustomText from "../Shared-ui/CustomText";
 import { StyledTextField } from "../Shared-ui/StyledTextField";
@@ -8,17 +7,20 @@ import CustomButton from "../Shared-ui/CustomButton";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { changePasswordSchema } from "@/Validations/ChangePasswordSchema";
-import { useChangePasswordMutation } from "@/rtk/endpoints/authApi";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { showAlert } from "@/rtk/feature/alertSlice";
 import { useRouter } from "next/navigation";
-import { logoutUser } from "@/rtk/feature/authSlice";
+import { changePasswordSchema } from "../../Validations/ChangePasswordSchema";
+import { useChangePasswordMutation } from "../../rtk/endpoints/authApi";
+import { showAlert } from "../../rtk/feature/alertSlice";
+import { logoutUser } from "../../rtk/feature/authSlice";
+import { colors } from "../../Constants/colors";
 
 
 
-type FormData = yup.InferType<typeof changePasswordSchema>;
+
+type FormDataTransformed = yup.InferType<typeof changePasswordSchema>;
+type FormDataInputs = { password: string; newPassword: string; confirmPassword: string };
 
 export default function ChangePassword() {
   const {
@@ -26,7 +28,7 @@ export default function ChangePassword() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<FormData>({
+  } = useForm<FormDataInputs, undefined, FormDataTransformed>({
     resolver: yupResolver(changePasswordSchema),
     defaultValues: {
       password: "",
@@ -37,7 +39,7 @@ export default function ChangePassword() {
   const dispatch = useDispatch();
   const router = useRouter();
 const [changePassword, {isLoading, isSuccess}] = useChangePasswordMutation();
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: FormDataTransformed) => {
     try{
       const payload = {
         old_password:data.password,
@@ -55,7 +57,7 @@ const [changePassword, {isLoading, isSuccess}] = useChangePasswordMutation();
       dispatch(logoutUser());
       router.replace('/');
     }
-  },[isSuccess])
+  },[isSuccess, router, dispatch, reset])
   return (
     <Box
       flex={1}

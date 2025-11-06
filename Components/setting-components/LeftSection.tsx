@@ -1,9 +1,9 @@
-import { colors } from "@/Constants/colors";
 import { Avatar, Stack } from "@mui/material";
 import CustomText from "../Shared-ui/CustomText";
-import { settingMenuItems } from "@/Constants/data";
 import Image from "next/image";
 import React from "react";
+import { colors } from "../../Constants/colors";
+import { settingMenuItems } from "../../Constants/data";
 
 interface LeftSectionProps{
     selected:string;

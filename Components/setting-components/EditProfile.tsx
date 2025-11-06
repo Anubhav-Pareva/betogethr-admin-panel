@@ -2,11 +2,11 @@
 
 import { Box, Avatar, Divider, InputAdornment, Stack } from "@mui/material";
 import { StyledTextField } from "../Shared-ui/StyledTextField";
-import { colors } from "@/Constants/colors";
 import CustomText from "../Shared-ui/CustomText";
-import { icons } from "@/Constants/icons";
 import Image from "next/image";
 import CustomButton from "../Shared-ui/CustomButton";
+import { colors } from "../../Constants/colors";
+import { icons } from "../../Constants/icons";
 
 export default function EditProfile() {
   return (

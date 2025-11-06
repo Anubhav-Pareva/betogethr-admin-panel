@@ -1,6 +1,6 @@
 import Link from "next/link";
 import CustomText from "./CustomText";
-import { colors } from "@/Constants/colors";
+import { colors } from "../../Constants/colors";
 
 interface CustomLinkProps {
   title: string;

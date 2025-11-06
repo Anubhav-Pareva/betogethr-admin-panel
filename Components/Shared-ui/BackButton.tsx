@@ -2,9 +2,10 @@
 
 import { useRouter } from "next/navigation";
 import { Button } from "@mui/material";
-import { colors } from "@/Constants/colors";
 import Image from "next/image";
-import { icons } from "@/Constants/icons";
+import { colors } from "../../Constants/colors";
+import { icons } from "../../Constants/icons";
+
 
 export default function BackButton() {
   const router = useRouter();

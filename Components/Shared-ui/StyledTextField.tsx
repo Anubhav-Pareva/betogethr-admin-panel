@@ -1,6 +1,6 @@
-import { colors } from "@/Constants/colors";
 import { TextField, type TextFieldProps } from "@mui/material";
 import { styled, type Theme } from "@mui/material/styles";
+import { colors } from "../../Constants/colors";
 
 export const StyledTextField = styled((props: TextFieldProps) => (
   <TextField {...props} />

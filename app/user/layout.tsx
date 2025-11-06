@@ -1,6 +1,6 @@
-import NavBar from "@/Components/Shared-ui/NavBar";
-import ProtectedRoute from "@/Components/Shared-ui/ProtectedWrapper";
 import { Box } from "@mui/material";
+import ProtectedRoute from "../../Components/Shared-ui/ProtectedWrapper";
+import Sidebar from "../../Components/Shared-ui/NavBar";
 
 export default function DashboardLayout({
   children,
@@ -18,7 +18,7 @@ export default function DashboardLayout({
           background: "linear-gradient(145deg, #611EC6 50%, #3B82F6 100%)",
         }}
       >
-        <NavBar />
+        <Sidebar />
         {/* <Sidebar /> */}
         {children} {/* 👈 This is the Next.js equivalent of <Outlet /> */}
       </Box>

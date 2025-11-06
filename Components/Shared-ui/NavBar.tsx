@@ -10,9 +10,9 @@ import {
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
 import Image from "next/image";
-import { icons } from "@/Constants/icons";
-import { menuItems } from "@/Constants/data";
 import Link from "next/link";
+import { icons } from "../../Constants/icons";
+import { menuItems } from "../../Constants/data";
 
 const SidebarContainer = styled(Box)(() => ({
   width: "200px",

@@ -1,9 +1,8 @@
 "use client";
 
-import { colors } from "@/Constants/colors";
-import { images } from "@/Constants/images";
 import { Box } from "@mui/material";
-import Image from "next/image";
+import { images } from "../Constants/images";
+import { colors } from "../Constants/colors";
 
 export default function AuthLayout({
   children,

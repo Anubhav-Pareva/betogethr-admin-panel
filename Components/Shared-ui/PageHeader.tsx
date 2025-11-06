@@ -20,10 +20,10 @@ import CustomText from "./CustomText";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
-import { colors } from "@/Constants/colors";
 import { useTheme } from "@mui/material/styles";
 import MobileMenuDrawer from "./MobileMenuDrawer";
-import { RootState } from "@/rtk/store";
+import { RootState } from "../../rtk/store";
+import { colors } from "../../Constants/colors";
 
 interface PageHeaderProps {
   title: string;

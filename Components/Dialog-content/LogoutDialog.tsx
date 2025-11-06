@@ -2,12 +2,13 @@ import { Stack } from "@mui/material";
 import CustomButton from "../Shared-ui/CustomButton";
 import CustomText from "../Shared-ui/CustomText";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { colors } from "@/Constants/colors";
 import { useRouter } from "next/navigation";
-import { useLogoutMutation } from "@/rtk/endpoints/authApi";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { logoutUser } from "@/rtk/feature/authSlice";
+import { useLogoutMutation } from "../../rtk/endpoints/authApi";
+import { logoutUser } from "../../rtk/feature/authSlice";
+import { colors } from "../../Constants/colors";
+
 
 interface LogoutDialogProps{
     handleClose:()=>void;

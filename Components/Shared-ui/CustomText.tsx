@@ -1,5 +1,5 @@
-import { colors } from "@/Constants/colors";
 import { SxProps, Typography } from "@mui/material";
+import { colors } from "../../Constants/colors";
 
 interface CustomTextProp {
   /**font size */

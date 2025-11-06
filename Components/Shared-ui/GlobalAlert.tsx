@@ -4,8 +4,9 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-import { AppDispatch, RootState } from "@/rtk/store";
-import { closeAlert } from "@/rtk/feature/alertSlice";
+import { AppDispatch, RootState } from "../../rtk/store";
+import { closeAlert } from "../../rtk/feature/alertSlice";
+
 
 // Define AlertState interface (adjust according to your actual alertSlice)
 interface AlertState {

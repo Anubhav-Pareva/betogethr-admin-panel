@@ -8,7 +8,6 @@ import {
   Stack,
 } from "@mui/material";
 import CustomText from "./CustomText";
-import { menuItems } from "@/Constants/data";
 import Link from "next/link";
 import Image from "next/image";
 import CustomDialog from "./CustomDialog";
@@ -18,7 +17,8 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LogoutDialog from "../Dialog-content/LogoutDialog";
 import { useSelector } from "react-redux";
-import { RootState } from "@/rtk/store";
+import { RootState } from "../../rtk/store";
+import { menuItems } from "../../Constants/data";
 
 
 interface MobileMenuDrawerProps {

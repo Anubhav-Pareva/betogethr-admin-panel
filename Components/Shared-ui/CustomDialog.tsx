@@ -1,6 +1,6 @@
-import { colors } from "@/Constants/colors";
 import { Dialog, DialogContent } from "@mui/material";
 import type { JSX, ReactNode } from "react";
+import { colors } from "../../Constants/colors";
 interface CustomDialogProps {
   handleClose: (value: string) => void;
   open:boolean;

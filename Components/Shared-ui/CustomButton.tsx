@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import CustomText from "./CustomText";
-import { colors } from "@/Constants/colors";
 import Image from "next/image";
+import { colors } from "../../Constants/colors";
 
 interface CustomButtonProp {
   title: string;

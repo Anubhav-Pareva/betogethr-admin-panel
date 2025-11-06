@@ -1,5 +1,5 @@
-import PageHeader from "@/Components/Shared-ui/PageHeader";
 import { Box } from "@mui/material";
+import PageHeader from "../../../Components/Shared-ui/PageHeader";
 
 export default function DashboardHome() {
   return (

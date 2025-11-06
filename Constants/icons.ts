@@ -1,0 +1,17 @@
+export const icons = {
+    checked:'/icons/checked.svg',
+    unChecked:'/icons/unCheck.svg',
+    close:'/icons/close.svg',
+    logo:'/icons/ufo-logo.svg',
+    dashboard:'/icons/dashboard.svg',
+    backtest:'/icons/backtest.svg',
+    portfolio:'/icons/portfolio.svg',
+    marketData:'/icons/market-data.svg',
+    borkerIntegration:'/icons/broker-integration.svg',
+    apikey:'/icons/api-key.svg',
+    changePassword:'/icons/change-password.svg',
+    SubscriptionManagement:'/icons/subscription-management.svg',
+    tick:'/icons/tick.svg',
+    edit:'/icons/edit.svg',
+    plusCircular:'/icons/plusCircular.svg'
+}

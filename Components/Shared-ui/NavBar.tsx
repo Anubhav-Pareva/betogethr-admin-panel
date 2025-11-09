@@ -5,6 +5,7 @@ import {
   List,
   ListItemButton,
   ListItemText,
+  Collapse,
   Stack,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -15,20 +16,19 @@ import { icons } from "../../Constants/icons";
 import { menuItems } from "../../Constants/data";
 
 const SidebarContainer = styled(Box)(() => ({
-  width: "200px",
+  width: "220px",
   flex: "0 0 auto",
   display: "flex",
   color: "#FFFFFF",
   flexDirection: "column",
   gap: "1.25rem",
-//   boxShadow: "4px 0 20px rgba(0,0,0,0.3)",
 }));
 
 const StyledListItem = styled(ListItemButton)(({ theme }) => ({
   borderRadius: "12px",
   padding: "10px 16px",
   color: "#bdbdfd",
-  gap:"12px",
+  gap: "12px",
   "&:hover": {
     backgroundColor: "rgba(255,255,255,0.1)",
   },
@@ -43,30 +43,91 @@ const StyledListItem = styled(ListItemButton)(({ theme }) => ({
 
 export default function Sidebar() {
   const [selected, setSelected] = useState("Dashboard");
+  const [openMenus, setOpenMenus] = useState({});
+
+  const handleToggle = (text) => {
+    setOpenMenus((prev) => ({
+      ...prev,
+      [text]: !prev[text],
+    }));
+  };
+
   return (
-    <SidebarContainer sx={{display: {xs:'none', md:"flex"},}}>
-      <Stack>
+    <SidebarContainer sx={{ display: { xs: "none", md: "flex" } }}>
+      <Stack sx={{ alignItems: "center", paddingTop: 2 }}>
         <Image src={icons.logo} alt="Logo" width={50} height={50} />
       </Stack>
-      <List sx={{ flex: 1, padding: 0, gap: ".25rem", display: 'flex', flexDirection: 'column' }}>
-        {menuItems.map((item) => (
-          <Link href={item.url} key={item.text}>
-            <StyledListItem
-              selected={selected === item.text}
-              onClick={() => setSelected(item.text)}
-            >
-              
-              <Image src={item.icon} alt={item.text} width={24} height={24} />
-              <ListItemText
-                primary={item.text}
-                primaryTypographyProps={{
-                  fontSize: 14,
-                  fontWeight: 500,
+
+      <List
+        sx={{
+          flex: 1,
+          padding: 0,
+          gap: ".25rem",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        {menuItems.map((item) => {
+          const hasChildren = item.children && item.children.length > 0;
+          const isOpen = openMenus[item.text] || false;
+
+          return (
+            <Box key={item.text}>
+              <StyledListItem
+                selected={selected === item.text}
+                onClick={() => {
+                  if (hasChildren) handleToggle(item.text);
+                  else setSelected(item.text);
                 }}
-              />
-            </StyledListItem>
-          </Link>
-        ))}
+              >
+                <Image src={item.icon} alt={item.text} width={24} height={24} />
+                <ListItemText
+                  primary={item.text}
+                  primaryTypographyProps={{
+                    fontSize: 14,
+                    fontWeight: 500,
+                  }}
+                />
+                {hasChildren &&
+                  (isOpen ? (
+                    <Image src={icons.close} alt="up chevron" width={20} height={20}/>
+                  ) : (
+                    <Image src={icons.close} alt="up chevron" width={20} height={20}/>
+                  ))}
+              </StyledListItem>
+
+              {hasChildren && (
+                <Collapse in={isOpen} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {item.children.map((child) => (
+                      <Link href={child.url} key={child.text}>
+                        <StyledListItem
+                          sx={{ pl: 6, py: 1 }}
+                          selected={selected === child.text}
+                          onClick={() => setSelected(child.text)}
+                        >
+                          <Image
+                            src={child.icon}
+                            alt={child.text}
+                            width={20}
+                            height={20}
+                          />
+                          <ListItemText
+                            primary={child.text}
+                            primaryTypographyProps={{
+                              fontSize: 13,
+                              fontWeight: 400,
+                            }}
+                          />
+                        </StyledListItem>
+                      </Link>
+                    ))}
+                  </List>
+                </Collapse>
+              )}
+            </Box>
+          );
+        })}
       </List>
     </SidebarContainer>
   );

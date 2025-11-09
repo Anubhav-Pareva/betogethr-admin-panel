@@ -49,7 +49,7 @@ export default function PageHeader({ title }: PageHeaderProps) {
   // Use setDrawerOpen directly instead of a factory to match consumer props
 
   const handleSetting = () => {
-    router.push("/user/settings");
+    router.push("/admin/settings");
     setDrawerOpen(false);
   };
 

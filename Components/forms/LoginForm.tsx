@@ -36,7 +36,7 @@ export default function LoginForm() {
   const handleLogin = async (formData: Yup.InferType<typeof loginSchema>) => {
     try {
       console.log(formData)
-      navigate.push("/user");
+      navigate.push("/admin");
     } catch (err) {
       console.log("Login Error:", err);
     }

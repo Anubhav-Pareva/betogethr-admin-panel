@@ -28,7 +28,7 @@ export const menuItems = [
         url: "/admin/events/event-organisers",
       },
       {
-        text: "Approval Request",
+        text: "Event Request",
         icon: icons.menuIcon.request,
         url: "/admin/events/requests",
       },
@@ -45,7 +45,7 @@ export const menuItems = [
         url: "/admin/safespot",
       },
       {
-        text: "Approval Request",
+        text: "Safe Spot Request",
         icon: icons.menuIcon.request,
         url: "/admin/safespot/requests",
       },

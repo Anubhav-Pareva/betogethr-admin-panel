@@ -24,7 +24,7 @@ const SidebarContainer = styled(Box)(() => ({
   gap: "1.25rem",
 }));
 
-const StyledListItem = styled(ListItemButton)(({  }) => ({
+const StyledListItem = styled(ListItemButton)(({}) => ({
   borderRadius: "12px",
   padding: "10px 16px",
   color: "#bdbdfd",
@@ -73,29 +73,45 @@ export default function Sidebar() {
 
           return (
             <Box key={item.text}>
-              <StyledListItem
-                selected={selected === item.text}
-                onClick={() => {
-                  if (hasChildren) handleToggle(item.text);
-                  else setSelected(item.text);
-                }}
-              >
-                <Image src={item.icon} alt={item.text} width={26} height={26} />
-                <ListItemText
-                  primary={item.text}
-                  primaryTypographyProps={{
-                    fontSize: 14,
-                    fontWeight: 500,
+              <Link href={item.url} key={item.text}>
+                <StyledListItem
+                  selected={selected === item.text}
+                  onClick={() => {
+                    if (hasChildren) handleToggle(item.text);
+                    else setSelected(item.text);
                   }}
-                />
-                {hasChildren &&
-                  (isOpen ? (
-                    <Image src={icons.chevronUP} alt="up chevron" width={20} height={20}/>
-                  ) : (
-                    <Image src={icons.chevronDown} alt="up chevron" width={20} height={20}/>
-                  ))}
-              </StyledListItem>
-
+                >
+                  <Image
+                    src={item.icon}
+                    alt={item.text}
+                    width={26}
+                    height={26}
+                  />
+                  <ListItemText
+                    primary={item.text}
+                    primaryTypographyProps={{
+                      fontSize: 14,
+                      fontWeight: 500,
+                    }}
+                  />
+                  {hasChildren &&
+                    (isOpen ? (
+                      <Image
+                        src={icons.chevronUP}
+                        alt="up chevron"
+                        width={20}
+                        height={20}
+                      />
+                    ) : (
+                      <Image
+                        src={icons.chevronDown}
+                        alt="up chevron"
+                        width={20}
+                        height={20}
+                      />
+                    ))}
+                </StyledListItem>
+              </Link>
               {hasChildren && (
                 <Collapse in={isOpen} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>

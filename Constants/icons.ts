@@ -21,4 +21,7 @@ export const icons = {
   plusCircular: "/icons/plusCircular.svg",
   chevronDown: "/icons/chevronUp.svg",
   chevronUP: "/icons/chevronDown.svg",
+  download: "/icons/download.svg",
+  revenue: "/icons/revenue.svg",
+  premium: "/icons/premium.svg",
 };

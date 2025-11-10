@@ -4,6 +4,7 @@ import { colors } from "../../Constants/colors";
 interface CustomTextProp {
   /**font size */
   h1?: boolean;
+  h4?:boolean;
   h5?:boolean;
   h6?:boolean
   p1?: boolean;
@@ -24,6 +25,7 @@ interface CustomTextProp {
 
 export default function CustomText({
   h1 = false,
+  h4 = false,
   h5 = false,
   h6 = false,
   p1 = false,
@@ -41,6 +43,7 @@ export default function CustomText({
 }: CustomTextProp) {
   const fontSize = (): string => {
     if (h1) return "32px";
+    if(h4) return "28px";
     if(h5) return "20px";
     if(h6) return '16px';
     if (p1) return "16px";

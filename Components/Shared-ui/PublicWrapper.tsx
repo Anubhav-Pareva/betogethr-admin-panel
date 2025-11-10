@@ -1,10 +1,10 @@
 // src/components/PublicRoute.tsx
 "use client";
 
-import { RootState } from "@/rtk/store";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { RootState } from "../../rtk/store";
 
 export default function PublicRoute({
   children,
@@ -16,7 +16,7 @@ export default function PublicRoute({
 
   useEffect(() => {
     if (user) {
-      router.replace("/dashboard");
+      router.replace("/admin/dashboard");
     }
   }, [user, router]);
 

@@ -13,6 +13,11 @@ export const menuItems = [
     url: "/admin/events",
     children: [
       {
+        text: "Event List",
+        icon: icons.menuIcon.dashboard,
+        url: "/admin/events",
+      },
+      {
         text: "Admin Events",
         icon: icons.menuIcon.dashboard,
         url: "/admin/events/admin-events",
@@ -34,6 +39,11 @@ export const menuItems = [
     icon: icons.menuIcon.safeSpot,
     url: "/admin/safespot",
     children: [
+      {
+        text: "Safe Spot List",
+        icon: icons.menuIcon.dashboard,
+        url: "/admin/safespot",
+      },
       {
         text: "Approval Request",
         icon: icons.menuIcon.dashboard,

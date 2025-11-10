@@ -24,7 +24,7 @@ const SidebarContainer = styled(Box)(() => ({
   gap: "1.25rem",
 }));
 
-const StyledListItem = styled(ListItemButton)(({ theme }) => ({
+const StyledListItem = styled(ListItemButton)(({  }) => ({
   borderRadius: "12px",
   padding: "10px 16px",
   color: "#bdbdfd",
@@ -90,9 +90,9 @@ export default function Sidebar() {
                 />
                 {hasChildren &&
                   (isOpen ? (
-                    <Image src={icons.close} alt="up chevron" width={20} height={20}/>
+                    <Image src={icons.chevronUP} alt="up chevron" width={20} height={20}/>
                   ) : (
-                    <Image src={icons.close} alt="up chevron" width={20} height={20}/>
+                    <Image src={icons.chevronDown} alt="up chevron" width={20} height={20}/>
                   ))}
               </StyledListItem>
 

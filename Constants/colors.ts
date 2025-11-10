@@ -10,7 +10,7 @@ export const colors = {
     gray600:'#282828',
     gray700:'#1E1E1E',
     gray800:'#191919',
-    gray900:'#727272',
+    gray900:'#111827',
     gray1000:'#05081A',
     /**blue color */
     blue100:'#009FFF',

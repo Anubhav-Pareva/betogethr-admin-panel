@@ -80,7 +80,7 @@ export default function Sidebar() {
                   else setSelected(item.text);
                 }}
               >
-                <Image src={item.icon} alt={item.text} width={24} height={24} />
+                <Image src={item.icon} alt={item.text} width={26} height={26} />
                 <ListItemText
                   primary={item.text}
                   primaryTypographyProps={{
@@ -109,8 +109,8 @@ export default function Sidebar() {
                           <Image
                             src={child.icon}
                             alt={child.text}
-                            width={20}
-                            height={20}
+                            width={24}
+                            height={24}
                           />
                           <ListItemText
                             primary={child.text}

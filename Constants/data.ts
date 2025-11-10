@@ -14,22 +14,22 @@ export const menuItems = [
     children: [
       {
         text: "Event List",
-        icon: icons.menuIcon.dashboard,
+        icon: icons.menuIcon.list,
         url: "/admin/events",
       },
       {
         text: "Admin Events",
-        icon: icons.menuIcon.dashboard,
+        icon: icons.menuIcon.events,
         url: "/admin/events/admin-events",
       },
       {
         text: "Events Organisers",
-        icon: icons.menuIcon.dashboard,
+        icon: icons.menuIcon.organiser,
         url: "/admin/events/event-organisers",
       },
       {
         text: "Approval Request",
-        icon: icons.menuIcon.dashboard,
+        icon: icons.menuIcon.request,
         url: "/admin/events/requests",
       },
     ],
@@ -41,12 +41,12 @@ export const menuItems = [
     children: [
       {
         text: "Safe Spot List",
-        icon: icons.menuIcon.dashboard,
+        icon: icons.menuIcon.list,
         url: "/admin/safespot",
       },
       {
         text: "Approval Request",
-        icon: icons.menuIcon.dashboard,
+        icon: icons.menuIcon.request,
         url: "/admin/safespot/requests",
       },
     ],

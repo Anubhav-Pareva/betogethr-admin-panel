@@ -54,7 +54,7 @@ export default function Sidebar() {
 
   return (
     <SidebarContainer sx={{ display: { xs: "none", md: "flex" } }}>
-      <Stack sx={{ alignItems: "center", paddingTop: 2 }}>
+      <Stack sx={{ alignItems: "flex-start", paddingTop: 2 }}>
         <Image src={icons.logo} alt="Logo" width={50} height={50} />
       </Stack>
 

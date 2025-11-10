@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 //import ProtectedRoute from "../../Components/Shared-ui/ProtectedWrapper";
-import Sidebar from "../../Components/Shared-ui/NavBar";
+import Sidebar from "../../Components/Shared-ui/SideBar";
 
 export default function DashboardLayout({
   children,

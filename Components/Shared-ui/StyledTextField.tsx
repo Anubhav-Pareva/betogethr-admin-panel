@@ -7,7 +7,7 @@ export const StyledTextField = styled((props: TextFieldProps) => (
 ))(({  }: { theme: Theme }) => ({
   "& .MuiInputBase-root": {
     backgroundColor: colors.voilet900,
-    color: colors.gray900,
+    color: colors.white,
     borderRadius: '48px',
     "&:focus": {
       outline: "none",
@@ -64,7 +64,7 @@ export const StyledTextField = styled((props: TextFieldProps) => (
   "& .MuiFormLabel-root": {
     fontSize: "12px",
     marginTop: "-1px",
-    color:colors.gray900,
+    color:colors.white,
 
   },
   "& .MuiInputLabel-root.Mui-focused": {

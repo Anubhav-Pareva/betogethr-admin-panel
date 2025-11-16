@@ -10,6 +10,8 @@ export const icons = {
     list: "/icons/menuIcons/list.svg",
     organiser: "/icons/menuIcons/organiser.svg",
     request: "/icons/menuIcons/request.svg",
+    tags: "/icons/menuIcons/tags.svg",
+    suggestions: "/icons/menuIcons/suggestions.svg",
   },
   checked: "/icons/checked.svg",
   unChecked: "/icons/unCheck.svg",

@@ -43,17 +43,15 @@ const StyledListItem = styled(ListItemButton)(({}) => ({
 
 export default function Sidebar() {
   const [selected, setSelected] = useState("Dashboard");
-  const [openMenus, setOpenMenus] = useState({});
+  const [openMenus, setOpenMenus] = useState('');
 
-  const handleToggle = (text) => {
-    setOpenMenus((prev) => ({
-      ...prev,
-      [text]: !prev[text],
-    }));
+  const handleToggle = (text:string) => {
+    setOpenMenus(text);
   };
 
   return (
     <SidebarContainer sx={{ display: { xs: "none", md: "flex" } }}>
+  <Stack sx={{position:"sticky", gap:'1.25rem', top:0}}>
       <Stack sx={{ alignItems: "flex-start", paddingTop: 2 }}>
         <Image src={icons.logo} alt="Logo" width={50} height={50} />
       </Stack>
@@ -69,15 +67,16 @@ export default function Sidebar() {
       >
         {menuItems.map((item) => {
           const hasChildren = item.children && item.children.length > 0;
-          const isOpen = openMenus[item.text] || false;
+          const isOpen = openMenus === item.text || false;
 
           return (
             <Box key={item.text}>
               <Link href={item.url} key={item.text}>
                 <StyledListItem
-                  selected={selected === item.text}
+                  selected={selected === item.text ||
+                    item.children?.some((child) => child.text === selected)}
                   onClick={() => {
-                    if (hasChildren) handleToggle(item.text);
+                    if (hasChildren) {handleToggle(item.text); setSelected(item.children[0].text)}
                     else setSelected(item.text);
                   }}
                 >
@@ -114,7 +113,7 @@ export default function Sidebar() {
               </Link>
               {hasChildren && (
                 <Collapse in={isOpen} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
+                  <List component="div" >
                     {item.children.map((child) => (
                       <Link href={child.url} key={child.text}>
                         <StyledListItem
@@ -145,6 +144,7 @@ export default function Sidebar() {
           );
         })}
       </List>
+      </Stack>
     </SidebarContainer>
   );
 }

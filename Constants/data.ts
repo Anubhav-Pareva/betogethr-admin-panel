@@ -8,6 +8,23 @@ export const menuItems = [
   },
   { text: "Users", icon: icons.menuIcon.users, url: "/admin/users" },
   {
+    text: "Tags",
+    icon: icons.menuIcon.tags,
+    url: "/admin/tags",
+    children: [
+      {
+        text: "Tags List",
+        icon: icons.menuIcon.tags,
+        url: "/admin/tags",
+      },
+      {
+        text: "Tag Suggestions",
+        icon: icons.menuIcon.suggestions,
+        url: "/admin/events",
+      },
+    ],
+  },
+  {
     text: "Events",
     icon: icons.menuIcon.events,
     url: "/admin/events",

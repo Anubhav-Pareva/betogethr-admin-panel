@@ -17,7 +17,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MenuIcon from "@mui/icons-material/Menu";
 import CustomText from "./CustomText";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import { useTheme } from "@mui/material/styles";
@@ -27,9 +27,17 @@ import { colors } from "../../Constants/colors";
 
 interface PageHeaderProps {
   title: string;
+  isSearch?: boolean;
+  searchQuery?: string;
+  setSearchQuery?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function PageHeader({ title }: PageHeaderProps) {
+export default function PageHeader({
+  title,
+  isSearch = false,
+  setSearchQuery,
+  searchQuery,
+}: PageHeaderProps) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openDialog, setDialog] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -97,8 +105,10 @@ export default function PageHeader({ title }: PageHeaderProps) {
       {/* Right Section */}
       <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
         {/* Search bar - hidden on mobile */}
-        {!isSmallScreen && (
+        {!isSmallScreen && isSearch && (
           <TextField
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search anything..."
             variant="outlined"
             size="small"

@@ -17,11 +17,14 @@ export default function DashboardLayout({
         style={{ padding: "1.25rem", gap: "1.25rem" }}
         sx={{
           background: `linear-gradient(145deg, ${colors.voilet500} 50%, ${colors.gray900} 100%)`,
+          width:"100%"
         }}
       >
         <Sidebar />
         {/* <Sidebar /> */}
+        <Box width={{xs:'100%', md:'calc(100% - 240px)'}}>
         {children} {/* 👈 This is the Next.js equivalent of <Outlet /> */}
+        </Box>
       </Box>
     //</ProtectedRoute>
   );
